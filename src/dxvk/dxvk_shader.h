@@ -132,6 +132,9 @@ namespace dxvk {
     /// Whether dynamic non-uniform resource indexing is
     /// supported. Only applies to typed resources.
     SupportsResourceIndexing    = 20u,
+    /// Whether memory ordering semantics for atomics
+    /// can be relaxed on Intel HW.
+    SupportsIntelRelaxAtomicMemoryOrderingSemantics = 21u,
   };
 
   using DxvkShaderSpirvFlags = Flags<DxvkShaderSpirvFlag>;

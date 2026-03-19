@@ -1781,6 +1781,9 @@ namespace dxvk {
     options.maxCbvSize = m_info.options.maxUniformBufferSize;
     options.maxCbvCount = m_info.options.maxUniformBufferCount;
 
+    options.intelRelaxAtomicMemoryOrderingSemantics =
+      m_info.options.spirv.test(DxvkShaderSpirvFlag::SupportsIntelRelaxAtomicMemoryOrderingSemantics);
+
     // Build final SPIR-V binary
     DxvkShaderResourceMapping mapping(m_metadata.stage, bindings);
 

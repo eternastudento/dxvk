@@ -891,6 +891,10 @@ namespace dxvk {
     // Descriptor heap implicitly also enables resource indexing
     if (canUseDescriptorHeap())
       m_shaderOptions.spirv.set(DxvkShaderSpirvFlag::SupportsResourceIndexing);
+
+    // Relax memory ordering semantics for atomics on Intel HW
+    if (m_adapter->matchesDriver(VK_DRIVER_ID_INTEL_OPEN_SOURCE_MESA))
+      m_shaderOptions.spirv.set(DxvkShaderSpirvFlag::SupportsIntelRelaxAtomicMemoryOrderingSemantics);
   }
 
 
